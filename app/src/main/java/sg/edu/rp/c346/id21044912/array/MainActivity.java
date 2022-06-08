@@ -15,23 +15,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.setTitle("ArrayList");
-
+        tv = findViewById(R.id.textView);
         fruits = new ArrayList<String>();
         fruits.add("apple");
         fruits.add("banana");
         fruits.add("cherry");
         fruits.add("durian");
 
-        tv = findViewById(R.id.textView);
+        String theFruit = fruits.get(1);
+        fruits.remove(0);
+        fruits.set(fruits.size()-1,"dragon fruit");
 
         String text = "Fruits\n";
-        text += "=====\n";
-
-        for (int i=0; i<fruits.size();i++) {
+        text += "================\n";
+        for (int i=0; i<fruits.size(); i++) {
             text += fruits.get(i) + "\n";
         }
-
         tv.setText(text);
     }
 }
